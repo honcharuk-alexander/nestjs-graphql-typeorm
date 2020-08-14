@@ -1,6 +1,6 @@
-<p align="center">
+<H1 align="center">
   NestJS + TypeORM + GraphQL
-</p>
+</H1>
 <p align="center">Simple GraphQL API with NestJS and TypeORM for book catalog</p>
 
 ## Technology
