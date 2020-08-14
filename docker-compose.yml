@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  main:
+    container_name: main
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 5000:3000
+    command: npm run start
+    depends_on:
+      - nest-mysql
+  nest-mysql:
+    image: mysql:5.7.31
+    restart: always
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    ports:
+      - "6000:3306"
+    expose:
+      - '6000'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: catalog
